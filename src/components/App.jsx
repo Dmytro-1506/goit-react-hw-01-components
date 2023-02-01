@@ -1,3 +1,7 @@
+import PropTypes from 'prop-types';
+import user from './user.json';
+import { Profile } from "./Profile";
+
 export const App = () => {
   return (
     <div
@@ -10,7 +14,19 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Profile
+        userCard={user}
+      />
     </div>
   );
 };
+
+Profile.propTypes = {
+  userCard: PropTypes.exact({
+    username: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    stats: PropTypes.object.isRequired
+    })
+}
