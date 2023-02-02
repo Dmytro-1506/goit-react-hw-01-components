@@ -13,7 +13,7 @@ export const App = () => {
     <div
       style={{
         width: '100%',
-        backgroundColor: 'gray',
+        backgroundColor: 'azure',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

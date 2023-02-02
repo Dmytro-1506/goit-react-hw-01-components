@@ -1,0 +1,22 @@
+.transaction-history {
+  width: 800px;
+}
+
+thead th,
+tbody th {
+  padding: 5px;
+  border: 1px solid #2a2a2a;
+}
+
+thead {
+  background-color: rgb(72, 178, 248);
+}
+
+tbody {
+  background-color: rgb(199, 230, 251);
+}
+
+.transaction-type {
+  text-align: left;
+  padding-left: 10px;
+}
