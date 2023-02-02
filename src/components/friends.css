@@ -1,5 +1,5 @@
 .friend-list {
-  padding: 40px 0;
+  padding-left: 0;
   align-items: center;
   list-style: none;
   width: 100%;
@@ -9,6 +9,7 @@
 }
 
 .card {
+  background-color: #fff;
   padding: 0 20px;
   width: 400px;
   display: flex;
