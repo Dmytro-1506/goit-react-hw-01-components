@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import user from './user.json';
-import { Profile } from "./Profile";
-import data from './data.json';
-import { Statistics } from './Data';
-import friends from './friends.json';
-import { FriendList } from './Friends';
-import transactions from './transactions.json';
-import { TransactionHistory } from './Transactions';
+import user from '../data/user.json';
+import { Profile } from "./profile/Profile";
+import data from '../data/data.json';
+import { Statistics } from './statistics/Statistics';
+import friends from '../data/friends.json';
+import { FriendList } from './friend-list/FriendList';
+import transactions from '../data/transactions.json';
+import { TransactionHistory } from './transactions/Transactions';
 
 export const App = () => {
   return (
@@ -23,9 +23,9 @@ export const App = () => {
       }}
     >
       <Profile userCard={user} />
-      <Statistics dataList={data} />
+      <Statistics title="Upload stats" dataList={data} />
       <FriendList friends={friends} />
-      <TransactionHistory transactions={transactions} />
+      <TransactionHistory items={transactions} />
     </div>
   );
 }
@@ -38,4 +38,31 @@ Profile.propTypes = {
     avatar: PropTypes.string.isRequired,
     stats: PropTypes.object.isRequired
     })
+}
+
+Statistics.propTypes = {
+  title: PropTypes.string.isRequired,
+  dataList: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+    }))
+}
+
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(PropTypes.shape({
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    isOnline: PropTypes.bool
+    }))
+}
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    amount: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
+  }))
 }
